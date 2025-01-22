@@ -10,7 +10,7 @@ public class Factura extends Comprobante implements IVA {
     private Vendedor vendedor;
     private boolean anulacion;
 
-    public Factura(Producto producto, String fecha, Cliente cliente, Vendedor vendedor) {
+    public Factura(Producto[] producto, String fecha, Cliente cliente, Vendedor vendedor) {
         super(++contador, producto, fecha);
         this.cliente = cliente;
         this.vendedor = vendedor;
@@ -52,13 +52,13 @@ public class Factura extends Comprobante implements IVA {
     @Override
     public double impuestoIVA() {
 
-        return (this.producto.getPrecio() * (1+IVA));
+        return (super.precioCompra() * (1+IVA));
     }
 
     @Override
     public String toString() {
-        return String.format("%s%s%sPrecio Final: %.2f",super.toString(),this.cliente.toString(),
-                this.vendedor.toString(),this.impuestoIVA());
+        return String.format("%s%s%sPrecio Final: %.2f",this.cliente.toString(),
+                this.vendedor.toString(),super.toString(),this.impuestoIVA());
     }
 
 //    @Override

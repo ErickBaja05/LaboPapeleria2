@@ -9,13 +9,13 @@ public class Reserva extends Comprobante implements IVA, Cargo {
     private Vendedor vendedor;
     private double precioTarifa;
     private double cuotas;
-    public static final Producto defProd = new Producto("N/A", 0) {
+    public static final Producto[] defProd = new Producto[] {
     } ;
     public Reserva(Vendedor vendedor) {
         super(++contador,defProd,"");
         this.vendedor = vendedor;
     }
-    public Reserva(Producto producto, String fecha, int fechaLimite, Vendedor vendedor) {
+    public Reserva(Producto[] producto, String fecha, int fechaLimite, Vendedor vendedor) {
         super(++contador,producto, fecha);
         this.fechaLimite = fechaLimite;
         this.vendedor = vendedor;
@@ -55,7 +55,7 @@ public class Reserva extends Comprobante implements IVA, Cargo {
             this.precioTarifa = impuestoIVA() + calculoCargo();
         }
         else{
-            this.precioTarifa = impuestoIVA() + calculoCargo() + producto.getPrecio()*0.10;
+            this.precioTarifa = impuestoIVA() + calculoCargo() + super.precioCompra()*0.10;
         }
     }
 
@@ -80,17 +80,17 @@ public class Reserva extends Comprobante implements IVA, Cargo {
     @Override
     public double impuestoIVA() {
 
-        return (this.producto.getPrecio() * (1+IVA));
+        return (super.precioCompra() * (1+IVA));
     }
 
     @Override
     public double calculoCargo() {
-        if (producto.getPrecio() <= 2){
-            return (Cargo.cargo) * producto.getPrecio(); // 10% del costo total
-        } else if (producto.getPrecio() > 2 && producto.getPrecio() <= 3) {
-            return (Cargo.cargo + 0.02) * producto.getPrecio() ; // 12% del costo total
+        if (super.precioCompra() <= 2){
+            return (Cargo.cargo) * super.precioCompra(); // 10% del costo total
+        } else if (super.precioCompra() > 2 && super.precioCompra() <= 3) {
+            return (Cargo.cargo + 0.02) * super.precioCompra() ; // 12% del costo total
         } else {
-            return (Cargo.cargo + 0.05) * producto.getPrecio(); // 15% del costo total
+            return (Cargo.cargo + 0.05) * super.precioCompra(); // 15% del costo total
         }
     }
 

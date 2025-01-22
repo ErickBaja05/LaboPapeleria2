@@ -4,7 +4,7 @@ package papeleria;
 import java.util.Arrays;
 
 public class ArrayProductos {
-    private static int contadorProductosValidos;
+    private static int contadorProductosValidos = 0;
     private static Producto[] productosVenta = new Producto[20];
     private static int[] stock = new int[20];
     static {
@@ -75,12 +75,13 @@ public class ArrayProductos {
         for(int i = indice; i < contadorProductosValidos -1; i++) {
             stock[i] = stock[i+1];
         }
+        stock[indice-1] = 0;
         contadorProductosValidos--;
     }
 
     public static boolean verificarExistencias(int unidadesComprar, int indice){
         boolean resultado;
-        if(unidadesComprar > stock[indice]){
+        if(unidadesComprar > stock[indice-1]){
             resultado = false;
         }
         else{
@@ -94,6 +95,14 @@ public class ArrayProductos {
 
     public static void actualizarExistencias(int unidades, int indice){
         stock[indice-1] = unidades;
+    }
+    public static void devolerExistencias(int unidades, int indice){
+        stock[indice-1] += unidades;
+    }
+
+
+    public static int getContadorProductosValidos() {
+        return contadorProductosValidos;
     }
 }
 

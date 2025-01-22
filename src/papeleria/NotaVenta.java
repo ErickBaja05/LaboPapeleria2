@@ -9,7 +9,7 @@ public class NotaVenta extends Comprobante {
     //no hay impuestos
 
 
-    public NotaVenta(Producto producto, String fecha, Cliente cliente) {
+    public NotaVenta(Producto[] producto, String fecha, Cliente cliente) {
 
         super(++contador,producto, fecha);
         this.cliente = cliente;
