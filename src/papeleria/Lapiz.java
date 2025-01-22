@@ -29,7 +29,7 @@ public class Lapiz extends Producto {
     @Override
     public String toString() {
         System.out.println("**Lapiz**");
-        return String.format("%sDureza del lapiz: %s%n",super.toString(),this.dureza);
+        return String.format("%sDureza del lapiz: %s",super.toString(),this.dureza);
     }
 
     @Override

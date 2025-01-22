@@ -39,7 +39,7 @@ public class Borrador extends Producto {
     @Override
     public String toString() {
         System.out.println("**Borrador**");
-        return String.format("%sBorrador %s con un peso de %.2f gramos%n",super.toString(), this.tipo, this.peso);
+        return String.format("%sBorrador %s con un peso de %.2f gramos",super.toString(), this.tipo, this.peso);
     }
 
     @Override

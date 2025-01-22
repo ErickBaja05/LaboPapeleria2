@@ -42,7 +42,7 @@ public class Cuaderno extends Producto {
     @Override
     public String toString() {
         System.out.println("**Cuaderno**");
-        return String.format("%sNro de hojas: %d%nTipo de linea: %s%n",super.toString(),this.nroHojas,this.linea);
+        return String.format("%sNro de hojas: %d%nTipo de linea: %s",super.toString(),this.nroHojas,this.linea);
     }
     
     @Override
