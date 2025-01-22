@@ -66,19 +66,16 @@ public class ArrayProductos {
         }
     }
 
-    public static void eliminarProducto(Producto[] productosCompra) {
-        for (Producto productosCarrito : productosCompra) {
-            for (int i = 0; i < productosVenta.length; i++) {
-                if (productosVenta[i] != null && productosCarrito.equals(productosVenta[i])) {
-                    // Desplazando elementos hacia la izquierda
-                    for (int j = i; j < productosVenta.length - 1; j++) {
-                        productosVenta[j] = productosVenta[j + 1];
-                    }
-                    productosVenta[productosVenta.length - 1] = null; // Último elemento a null
-                    break; // Saliendo del bucle después de la eliminación
-                }
-            }
+    public static void eliminarProducto(int indice) {
+
+        for(int i = indice; i < contadorProductosValidos -1; i++) {
+            productosVenta[i] = productosVenta[i+1];
+
         }
+        for(int i = indice; i < contadorProductosValidos -1; i++) {
+            stock[i] = stock[i+1];
+        }
+        contadorProductosValidos--;
     }
 
     public static boolean verificarExistencias(int unidadesComprar, int indice){
@@ -93,6 +90,10 @@ public class ArrayProductos {
     }
     public static void reducirStock(int unidades, int indice){
         stock[indice-1] = stock[indice-1] - unidades;
+    }
+
+    public static void actualizarExistencias(int unidades, int indice){
+        stock[indice-1] = unidades;
     }
 }
 
