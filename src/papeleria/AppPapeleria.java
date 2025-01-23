@@ -9,26 +9,21 @@ public class AppPapeleria {
     //extends Throwable{
     private static final String usuarioAdmin = "admin";
     private static final String contraseniaAdmin = "admin";
-
     private static Vendedor vendedor1 = new Vendedor("0321456987", "Pedro", 8, "Vendedor");
+
+
     private static Lapiz lapiz1 = new Lapiz("Mongol", 0.8, "HB");
     private static Borrador borrador1 = new Borrador("Borrador", 0.5, 0.25, "De queso");
     private static Cuaderno cuaderno1 = new Cuaderno("Norma", 3.1, 60, "Dos lineas");
 
-    // MODO ADMIN PARA PROBAR LOS EQUALS.
-    public static String menuPrincipal() {
-        StringBuilder menu = new StringBuilder();
-        menu.append("******SISTEMA DE GESTION DE PAPELERIA*****\n");
-        menu.append("1. INGRESAR COMO CLIENTE\n");
-        menu.append("2. INGRESAR COMO ADMIN (SISTEMA DE INVENTARIO)\n");
-        menu.append("3. SALIR\n");
-        menu.append("ESCOJA UNA OPCION:");
-        return menu.toString();
-    }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+            ejecutar();
+    }
 
+
+    public static void ejecutar(){
+        Scanner sc = new Scanner(System.in);
         boolean enEjecucion = true;
         while (enEjecucion) {
             int op = -1;
@@ -44,7 +39,6 @@ public class AppPapeleria {
                     sc.nextLine();
                 }
             }
-
 
             switch (op) {
                 case 1:
@@ -116,10 +110,10 @@ public class AppPapeleria {
                     break;
                 case 3:
                     enEjecucion = false;
+                    sc.close();
             }
         }
     }
-
 
     public static boolean validacionAdmin() {
         boolean Aprobado = false;
@@ -138,10 +132,10 @@ public class AppPapeleria {
 
     public static String menuValidaciones() {
         StringBuilder menu = new StringBuilder();
-        menu.append("*****VERIFICACION EXISTENCIA DE PRODUCTOS*******\n");
-        menu.append("1. VERIFICAR EXISTENCIA DE LAPIZ\n");
-        menu.append("2. VERIFICAR EXISTENCIA DE CUADERNO\n");
-        menu.append("3. VERIFICAR EXISTENCIA DE BORRADOR\n");
+        menu.append("*****OPCIONES DE ADMINISTRADOR*******\n");
+        menu.append("1. VERIFICAR EXISTENCIA DE UN PRODUCTO\n");
+        menu.append("2. MODIFICAR STOCK EXISTENTE\n");
+        menu.append("3. \n");
         menu.append("ESCOJA UNA OPCION:");
         return menu.toString();
     }
@@ -499,7 +493,6 @@ public class AppPapeleria {
             }
         } while (cantidad < 0);
         ArrayCarrito.reducirCantidad(cantidad, producto);
-        ArrayProductos.devolerExistencias(cantidad, producto);
         System.out.println("MODIFICACIÓN EXITOSA");
     }
 
@@ -531,5 +524,15 @@ public class AppPapeleria {
         return opciones.toString();
     }
 
+    // MODO ADMIN PARA PROBAR LOS EQUALS.
+    public static String menuPrincipal() {
+        StringBuilder menu = new StringBuilder();
+        menu.append("******SISTEMA DE GESTION DE PAPELERIA*****\n");
+        menu.append("1. INGRESAR COMO CLIENTE\n");
+        menu.append("2. INGRESAR COMO ADMIN (SISTEMA DE INVENTARIO)\n");
+        menu.append("3. SALIR\n");
+        menu.append("ESCOJA UNA OPCION:");
+        return menu.toString();
+    }
 
 }
