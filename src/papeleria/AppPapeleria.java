@@ -12,14 +12,11 @@ public class AppPapeleria {
     private static Vendedor vendedor1 = new Vendedor("0321456987", "Pedro", 8, "Vendedor");
 
 
-    private static Lapiz lapiz1 = new Lapiz("Mongol", 0.8, "HB");
-    private static Borrador borrador1 = new Borrador("Borrador", 0.5, 0.25, "De queso");
-    private static Cuaderno cuaderno1 = new Cuaderno("Norma", 3.1, 60, "Dos lineas");
-
 
     public static void main(String[] args) {
             ejecutar();
     }
+
 
 
     public static void ejecutar(){
@@ -63,54 +60,55 @@ public class AppPapeleria {
                     break;
                 case 2:
                     boolean admin = validacionAdmin();
-                    if (admin) {
-                        int opProductoVerificacion = -1;
-                        System.out.println(menuValidaciones());
-                        while (opProductoVerificacion < 1 || opProductoVerificacion > 3) {
-                            try {
-                                opProductoVerificacion = sc.nextInt();
-                                if ((opProductoVerificacion < 1) || (opProductoVerificacion > 3)) {
-                                    System.out.println("Ingrese una opcion valida.");
-                                }
-                            } catch (InputMismatchException e) {
-                                System.out.println("SOLO SE ADMITEN VALORES NUMERICOS.");
-                                sc.nextLine();
-                            }
-                        }
-                        switch (opProductoVerificacion) {
-                            case 1:
-                                boolean existeLapiz = verificarLapiz();
-                                if (existeLapiz) {
-                                    System.out.println("HAY STOCK DEL PRODUCTO");
-                                } else {
-                                    System.out.println("NO SE ENCONTRADO");
-                                }
-                                break;
-                            case 2:
-                                boolean existeCuaderno = verificarCuaderno();
-                                if (existeCuaderno) {
-                                    System.out.println("HAY STOCK DEL PRODUCTO");
-                                } else {
-                                    System.out.println("NO SE ENCONTRADO");
-                                }
-                                break;
-                            case 3:
-                                boolean existeBorrador = verificarBorrador();
-                                if (existeBorrador) {
-                                    System.out.println("HAY STOCK DEL PRODUCTO");
-                                } else {
-                                    System.out.println("NO SE ENCONTRADO");
-                                }
-                                break;
-                        }
-                    } else {
-                        System.out.println("CREDENCIALES INCORRECTAS.");
-
-                    }
-                    break;
+//                    if (admin) {
+//                        int opProductoVerificacion = -1;
+//                        System.out.println(menuValidaciones());
+//                        while (opProductoVerificacion < 1 || opProductoVerificacion > 3) {
+//                            try {
+//                                opProductoVerificacion = sc.nextInt();
+//                                if ((opProductoVerificacion < 1) || (opProductoVerificacion > 3)) {
+//                                    System.out.println("Ingrese una opcion valida.");
+//                                }
+//                            } catch (InputMismatchException e) {
+//                                System.out.println("SOLO SE ADMITEN VALORES NUMERICOS.");
+//                                sc.nextLine();
+//                            }
+//                        }
+//                        switch (opProductoVerificacion) {
+//                            case 1:
+//                                boolean existeLapiz = verificarLapiz();
+//                                if (existeLapiz) {
+//                                    System.out.println("HAY STOCK DEL PRODUCTO");
+//                                } else {
+//                                    System.out.println("NO SE ENCONTRADO");
+//                                }
+//                                break;
+//                            case 2:
+//                                boolean existeCuaderno = verificarCuaderno();
+//                                if (existeCuaderno) {
+//                                    System.out.println("HAY STOCK DEL PRODUCTO");
+//                                } else {
+//                                    System.out.println("NO SE ENCONTRADO");
+//                                }
+//                                break;
+//                            case 3:
+//                                boolean existeBorrador = verificarBorrador();
+//                                if (existeBorrador) {
+//                                    System.out.println("HAY STOCK DEL PRODUCTO");
+//                                } else {
+//                                    System.out.println("NO SE ENCONTRADO");
+//                                }
+//                                break;
+//                        }
+//                    } else {
+//                        System.out.println("CREDENCIALES INCORRECTAS.");
+//
+//                    }
+//                    break;
                 case 3:
                     enEjecucion = false;
                     sc.close();
+                    break;
             }
         }
     }
@@ -130,16 +128,18 @@ public class AppPapeleria {
         return Aprobado;
     }
 
+
+
     public static String menuValidaciones() {
         StringBuilder menu = new StringBuilder();
         menu.append("*****OPCIONES DE ADMINISTRADOR*******\n");
-        menu.append("1. VERIFICAR EXISTENCIA DE UN PRODUCTO\n");
+        menu.append("1. AGREGAR UN PRODUCTO A LA TIENDA\n");
         menu.append("2. MODIFICAR STOCK EXISTENTE\n");
-        menu.append("3. \n");
+        menu.append("3. VOLVER AL MENU PRINCIPAL\n");
         menu.append("ESCOJA UNA OPCION:");
         return menu.toString();
     }
-
+    /*
     public static boolean verificarLapiz() {
         Scanner sc = new Scanner(System.in);
         Lapiz lapiz = new Lapiz();
@@ -155,6 +155,7 @@ public class AppPapeleria {
         lapiz.setDureza(dureza);
         return lapiz1.equals(lapiz);
     }
+
 
     public static boolean verificarCuaderno() {
         Scanner sc = new Scanner(System.in);
@@ -194,6 +195,8 @@ public class AppPapeleria {
         return borrador1.equals(borrador);
     }
 
+
+     */
 
     public static String menuCliente() {
         StringBuilder menu = new StringBuilder();
