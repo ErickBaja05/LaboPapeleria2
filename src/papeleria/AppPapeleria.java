@@ -1,12 +1,14 @@
+// DESARROLADO POR : BAJAÑA ERICK, CAMINO ADRIAN, CARCELEN JOSUE, TIPANTUÑA FRANCIEL
+
 package papeleria;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-//import java.lang.Throwable;
+
 
 public class AppPapeleria {
-    //extends Throwable{
+
     private static final String usuarioAdmin = "admin";
     private static final String contraseniaAdmin = "admin";
     private static Vendedor vendedor1 = new Vendedor("0321456987", "Pedro", 8, "Vendedor");
