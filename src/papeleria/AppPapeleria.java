@@ -3,6 +3,7 @@
 package papeleria;
 
 import java.util.InputMismatchException;
+import java.util.Locale;
 import java.util.Scanner;
 
 
@@ -93,7 +94,7 @@ public class AppPapeleria {
 
     public static void modoAdmin(){
         Scanner sc = new Scanner(System.in);
-
+        sc.useLocale(Locale.ENGLISH);
         boolean admin = true;
         while (admin) {
             int opAdmin = -1;
@@ -164,6 +165,7 @@ public class AppPapeleria {
     }
     public static void agregarLapiz(){
         Scanner sc = new Scanner(System.in);
+        sc.useLocale(Locale.ENGLISH);
         Lapiz lapiz = new Lapiz();
         int unidades;
         setLapizInfo(sc, lapiz);
@@ -188,6 +190,7 @@ public class AppPapeleria {
 
     public static void agregarBorrador(){
         Scanner sc = new Scanner(System.in);
+        sc.useLocale(Locale.ENGLISH);
         Borrador borrador = new Borrador();
         int unidades;
         setBorradorInfo(sc, borrador);
@@ -200,6 +203,7 @@ public class AppPapeleria {
 
     public static void agregarCuaderno(){
         Scanner sc = new Scanner(System.in);
+        sc.useLocale(Locale.ENGLISH);
         Cuaderno cuaderno = new Cuaderno();
         int unidades;
         setCuadernoInfo(sc, cuaderno);
@@ -280,6 +284,7 @@ public class AppPapeleria {
 
     public static void verificarLapiz(){
         Scanner sc = new Scanner(System.in);
+        sc.useLocale(Locale.ENGLISH);
         Lapiz lapiz = new Lapiz();
         boolean existe = false;
         setLapizInfo(sc, lapiz);
@@ -297,6 +302,7 @@ public class AppPapeleria {
 
     public static void verificarCuaderno(){
         Scanner sc = new Scanner(System.in);
+        sc.useLocale(Locale.ENGLISH);
         Cuaderno cuaderno = new Cuaderno();
         boolean existe = false;
         setCuadernoInfo(sc, cuaderno);
@@ -330,6 +336,7 @@ public class AppPapeleria {
 
     public static void verificarBorrador(){
         Scanner sc = new Scanner(System.in);
+        sc.useLocale(Locale.ENGLISH);
         Borrador borrador = new Borrador();
         boolean existe = false;
         setBorradorInfo(sc, borrador);
@@ -401,7 +408,7 @@ public class AppPapeleria {
 
             // Agregacion de productos al carrito del user
             if(ArrayProductos.verificarExistencias(cantidad, opProductoCompra)) {
-                ArrayCarrito.agregarProducto(ArrayProductos.getProductosVenta()[opProductoCompra], cantidad);
+                ArrayCarrito.agregarProducto(ArrayProductos.getProductosVenta()[opProductoCompra-1], cantidad);
                 ArrayProductos.reducirStock(cantidad, opProductoCompra);
                 System.out.println("PRODUCTO AGREGADO AL CARRITO");
             }

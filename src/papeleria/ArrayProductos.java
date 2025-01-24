@@ -22,7 +22,7 @@ public class ArrayProductos {
         productosVenta[8] = new Borrador("Borrador Staedtler Mars Plastic", 0.5, 0.25, "De queso");
         productosVenta[9] = new Borrador("Borrador Pelikan B 40", 0.65, 0.25, "Goma de Caucho");
         productosVenta[10] = new Borrador("Borrador Moldeable Faber-Castell", 1.00, 0.350, "Goma Moldeable");
-        productosVenta[11] = new Borrador("Borrador Moldeable Faber-Castell", 1.00, 0.350, "Goma Moldeable");
+        productosVenta[11] = new Borrador("Borrador Pelikan", 1.00, 0.350, "De Queso");
         contadorProductosValidos = 12;
         // Inicializar los stock con 5 unidades de cada producto
         for(int i = 0 ; i < contadorProductosValidos ; i++){
