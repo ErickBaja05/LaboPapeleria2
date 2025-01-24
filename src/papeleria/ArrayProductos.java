@@ -31,6 +31,10 @@ public class ArrayProductos {
 
     };
 
+    public static int[] getStock() {
+        return stock;
+    }
+
     public static Producto[] getProductosVenta() {
         return productosVenta;
     }
