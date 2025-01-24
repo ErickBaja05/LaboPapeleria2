@@ -14,11 +14,9 @@ public class AppPapeleria {
     private static Vendedor vendedor1 = new Vendedor("0321456987", "Pedro", 8, "Vendedor");
 
 
-
     public static void main(String[] args) {
             ejecutar();
     }
-
 
 
     public static void ejecutar(){
@@ -363,64 +361,6 @@ public class AppPapeleria {
         borrador.setTipo(tipo);
     }
 
-    /*
-    public static boolean verificarLapiz() {
-        Scanner sc = new Scanner(System.in);
-        Lapiz lapiz = new Lapiz();
-        System.out.println("Ingrese el nombre/marca del lapiz:  ");
-        String nombre = sc.nextLine();
-        lapiz.setNombre(nombre);
-        System.out.println("Ingrese el precio del lapiz: ");
-        double precio = sc.nextDouble();
-        lapiz.setPrecio(precio);
-        sc.nextLine();
-        System.out.println("Ingrese la dureza del lapiz:");
-        String dureza = sc.nextLine();
-        lapiz.setDureza(dureza);
-        return lapiz1.equals(lapiz);
-    }
-
-
-    public static boolean verificarCuaderno() {
-        Scanner sc = new Scanner(System.in);
-        Cuaderno cuaderno = new Cuaderno();
-        System.out.println("Ingrese el nombre/marca del cuaderno:  ");
-        String nombre = sc.nextLine();
-        cuaderno.setNombre(nombre);
-        System.out.println("Ingrese el precio del cuaderno: ");
-        double precio = sc.nextDouble();
-        cuaderno.setPrecio(precio);
-        System.out.println("Ingrese el numero de hojas del cuaderno:");
-        int nHojas = sc.nextInt();
-        cuaderno.setNroHojas(nHojas);
-        sc.nextLine();
-        System.out.println("Ingrese el tipo de linea: ");
-        String tipo = sc.nextLine();
-        cuaderno.setLinea(tipo);
-        return cuaderno1.equals(cuaderno);
-    }
-
-    public static boolean verificarBorrador() {
-        Scanner sc = new Scanner(System.in);
-        Borrador borrador = new Borrador();
-        System.out.println("Ingrese el nombre/marca del borrador:  ");
-        String nombre = sc.nextLine();
-        borrador.setNombre(nombre);
-        System.out.println("Ingrese el precio del borrador: ");
-        double precio = sc.nextDouble();
-        borrador.setPrecio(precio);
-        System.out.println("Ingrese el peso del borrador :");
-        double peso = sc.nextDouble();
-        borrador.setPeso(peso);
-        sc.nextLine();
-        System.out.println("Ingrese el tipo de borrador: ");
-        String tipo = sc.nextLine();
-        borrador.setTipo(tipo);
-        return borrador1.equals(borrador);
-    }
-
-
-     */
 
     public static String menuCliente() {
         StringBuilder menu = new StringBuilder();
@@ -434,7 +374,6 @@ public class AppPapeleria {
 
     public static void comprarProducto() {
         Scanner sc = new Scanner(System.in);
-        Cliente cliente = new Cliente();
         int opProductoCompra = -1;
         int cantidad = 0;
         while (opProductoCompra < 1 || opProductoCompra > ArrayProductos.getContadorProductosValidos()) {
@@ -751,7 +690,6 @@ public class AppPapeleria {
         return opciones.toString();
     }
 
-    // MODO ADMIN PARA PROBAR LOS EQUALS.
     public static String menuPrincipal() {
         StringBuilder menu = new StringBuilder();
         menu.append("******SISTEMA DE GESTION DE PAPELERIA*****\n");
